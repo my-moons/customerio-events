@@ -2,13 +2,13 @@
 Integrating customer.io events in a library
 ### Installation
 ```
-$ npm i customerio-events
+$ npm i @mymoons/customerio-events
 ```
 
 or using `yarn`
 
 ```
-$ yarn add customerio-events
+$ yarn add @mymoons/customerio-events
 ```
 
 ### Configuration
