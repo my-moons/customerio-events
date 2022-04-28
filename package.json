@@ -1,6 +1,6 @@
 {
-  "name": "customerio-events",
-  "version": "1.0.0",
+  "name": "@mymoons/customerio-events",
+  "version": "1.0.1",
   "description": "Customer IO events integration",
   "main": "index.js",
   "scripts": {
