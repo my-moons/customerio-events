@@ -1,0 +1,27 @@
+{
+  "name": "customerio-events",
+  "version": "1.0.0",
+  "description": "Customer IO events integration",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/my-moons/customerio-events.git"
+  },
+  "keywords": [
+    "customerio",
+    "events",
+    "tracking"
+  ],
+  "author": "Moons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/my-moons/customerio-events/issues"
+  },
+  "homepage": "https://github.com/my-moons/customerio-events#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
+}
