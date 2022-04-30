@@ -74,6 +74,74 @@ const validateRequest = (eventName, eventProperties) => {
   }
 }
 
+const sendWorkspaceEvent = async ({workspaceEndpoint, eventName, eventProperties}) => {
+  try {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${customerioEventToken}`
+    }
+
+    validateRequest(eventName, eventProperties)
+  
+    const request = {
+      id: eventProperties.distinct_id,
+      event: eventName,
+      dataEvent: {
+        ...eventProperties
+      }
+    }
+
+    delete request.dataEvent.distinct_id
+  
+    const response = await axios.post(workspaceEndpoint, request, { headers: headers })
+
+    const resFinal = (response && response.data) ? response.data : response
+    return resFinal
+
+  } catch (error) {
+      console.log(error)
+    error = error.response && error.response.data ? error.response.data : error;
+    throw (error);
+  }
+}
+
+/**
+ * @param {string} workspaceEndpoint Enpoint for workspace operations
+ * @param {object} personData Data for the person to be created in CustomerIO
+ * @param {string} personData.id Distinct ID for Customer IO
+ * @param {string} personData.event Event for Customer IO
+ * @param {object} personData.customerData Data for create a person in Customer IO
+ * @returns {void}
+ */
+const createWorkspacePerson = async (workspaceEndpoint, {id, event, customerData}) => {
+  try {
+    const headers = {
+      'Content-Type': 'application/json',
+      'Authorization': `Basic ${customerioEventToken}`
+    }
+  
+    const request = {
+      id,
+      event,
+      customerData
+    }
+
+    delete request.dataEvent.distinct_id
+  
+    const response = await axios.post(workspaceEndpoint, request, { headers: headers })
+
+    const resFinal = (response && response.data) ? response.data : response
+    return resFinal
+
+  } catch (error) {
+    console.log(error)
+    error = error.response && error.response.data ? error.response.data : error;
+    throw (error);
+  }
+}
+
 module.exports = {
-  sendEvent
+  sendEvent,
+  sendWorkspaceEvent,
+  createWorkspacePerson
 }

@@ -12,10 +12,11 @@ $ yarn add @mymoons/customerio-events
 ```
 
 ### Configuration
-You must have the `CUSTOMER_IO_URL` and the `CUSTOMER_IO_EVENT_TOKEN` environment variables to send successfully an event to the workspace.
-If `CUSTOMER_IO_URL` is not given, the production URL is taken by default. Be careful with this default value.
-If `CUSTOMER_IO_EVENT_TOKEN` (the auth token) is not provided, an error there will be thrown
+You must have the `CUSTOMER_IO_URL` and the `CUSTOMER_IO_EVENT_TOKEN` environment variables setted to send successfully an event to the workspace.
 
+If `CUSTOMER_IO_URL` is not given, the production URL is taken by default. Be careful with this default value.
+
+If `CUSTOMER_IO_EVENT_TOKEN` (the auth token) is not provided, an error there will be thrown
 
 ### Usage
 
