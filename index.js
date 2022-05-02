@@ -125,13 +125,9 @@ const createWorkspacePerson = async (workspaceEndpoint, {id, event, customerData
       event,
       customerData
     }
-
-    delete request.dataEvent.distinct_id
   
     const response = await axios.post(workspaceEndpoint, request, { headers: headers })
-
-    const resFinal = (response && response.data) ? response.data : response
-    return resFinal
+    return (response && response.data) ? response.data : response
 
   } catch (error) {
     console.log(error)
